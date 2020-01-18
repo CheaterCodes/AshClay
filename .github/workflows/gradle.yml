@@ -1,9 +1,8 @@
-name: Publish on Push on 'master'
+name: Publish on create release
 
 on:
-  push:
-    branches:
-      - master
+  release:
+    types: [created]
 
 jobs:
   build:
