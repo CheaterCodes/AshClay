@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "ash_clay:block/ash_clay" },
+    "facing=south": { "model": "ash_clay:block/ash_clay", "y": 180 },
+    "facing=west":  { "model": "ash_clay:block/ash_clay", "y": 270 },
+    "facing=east":  { "model": "ash_clay:block/ash_clay", "y": 90 }
+  }
+}

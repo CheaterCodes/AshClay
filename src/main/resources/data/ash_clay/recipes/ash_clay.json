@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ash_clay:ash"
+    },
+    {
+      "item": "ash_clay:water_bowl"
+    }
+  ],
+  "result": {
+    "item": "ash_clay:ash_clay"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "ash_clay:ash_clay_bricks"
+    }
+  },
+  "result": {
+    "item": "ash_clay:ash_clay_furnace"
+  }
+}

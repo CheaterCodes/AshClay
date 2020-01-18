@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "ash_clay:block/ash_clay_bricks"
+    }
+}
