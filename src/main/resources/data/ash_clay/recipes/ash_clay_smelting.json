@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "ash_clay:ash_clay"
+  },
+  "result": "ash_clay:ash_clay_brick",
+  "experience": 0.3,
+  "cookingtime": 200
+}
