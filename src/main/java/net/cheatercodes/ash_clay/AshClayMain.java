@@ -50,22 +50,24 @@ public class AshClayMain implements ModInitializer, LootTableLoadingCallback, Us
             LootCondition noSilkTouchCondition = MatchToolLootCondition.builder(ItemPredicate.Builder.create().enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, NumberRange.IntRange.ANY))).invert().build();
 
 			FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder();
-			poolBuilder.withRolls(UniformLootTableRange.between(1,2));
-			poolBuilder.withEntry(ItemEntry.builder(AshClayItems.ASH));
+			poolBuilder.rolls(UniformLootTableRange.between(1,2));
+			poolBuilder.withEntry(ItemEntry.builder(AshClayItems.ASH).build());
 			poolBuilder.withCondition(noSilkTouchCondition);
-			fabricLootSupplierBuilder.withPool(poolBuilder);
+			fabricLootSupplierBuilder.withPool(poolBuilder.build());
 		}
 	}
 
 	@Override
 	public TypedActionResult<ItemStack> interact(PlayerEntity player, World world, Hand hand) {
 		ItemStack itemStack = player.getStackInHand(hand);
-		if(itemStack.getItem() == Items.BOWL && !player.abilities.creativeMode) {
+		if(itemStack.getItem() == Items.BOWL) {
 			HitResult hitResult = ItemAccessor.rayTrace(world, player, RayTraceContext.FluidHandling.SOURCE_ONLY);
 			if(hitResult.getType() == HitResult.Type.BLOCK) {
 				FluidState fluidState = world.getFluidState(((BlockHitResult)hitResult).getBlockPos());
 				if(fluidState.isStill() && fluidState.getFluid() == Fluids.WATER) {
-					itemStack.decrement(1);
+					if(!player.abilities.creativeMode) {
+						itemStack.decrement(1);
+					}
 					if(itemStack.isEmpty()) {
 						player.setStackInHand(hand, new ItemStack(AshClayItems.WATER_BOWL));
 					}

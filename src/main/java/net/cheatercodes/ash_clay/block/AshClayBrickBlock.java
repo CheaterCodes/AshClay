@@ -1,18 +1,13 @@
 package net.cheatercodes.ash_clay.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.HorizontalFacingBlock;
-import net.minecraft.datafixer.fix.ChunkPalettedStorageFix;
-import net.minecraft.entity.EntityContext;
+import net.minecraft.block.*;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.IWorld;
+import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
 public class AshClayBrickBlock extends HorizontalFacingBlock {
@@ -34,7 +29,7 @@ public class AshClayBrickBlock extends HorizontalFacingBlock {
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, EntityContext ePos) {
+    public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
         if(state.get(FACING).getAxis() == Direction.Axis.X)
             return X_AXIS_SHAPE;
         else
@@ -47,7 +42,7 @@ public class AshClayBrickBlock extends HorizontalFacingBlock {
     }
 
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction facing, BlockState neighborState, IWorld world, BlockPos pos, BlockPos neighborPos) {
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction facing, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         return facing == Direction.DOWN && !state.canPlaceAt(world, pos.down()) ? Blocks.AIR.getDefaultState() : super.getStateForNeighborUpdate(state, facing, neighborState, world, pos, neighborPos);
     }
 }

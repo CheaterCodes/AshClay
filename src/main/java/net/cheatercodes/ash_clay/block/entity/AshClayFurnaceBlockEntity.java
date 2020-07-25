@@ -2,10 +2,10 @@ package net.cheatercodes.ash_clay.block.entity;
 
 import net.cheatercodes.ash_clay.block.AshClayBlocks;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
-import net.minecraft.container.Container;
-import net.minecraft.container.FurnaceContainer;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.recipe.RecipeType;
+import net.minecraft.screen.FurnaceScreenHandler;
+import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 
@@ -20,7 +20,7 @@ public class AshClayFurnaceBlockEntity extends AbstractFurnaceBlockEntity {
     }
 
     @Override
-    protected Container createContainer(int i, PlayerInventory playerInventory) {
-        return new FurnaceContainer(i, playerInventory, this, this.propertyDelegate);
+    protected ScreenHandler createScreenHandler(int i, PlayerInventory playerInventory) {
+        return new FurnaceScreenHandler(i, playerInventory, this, this.propertyDelegate);
     }
 }

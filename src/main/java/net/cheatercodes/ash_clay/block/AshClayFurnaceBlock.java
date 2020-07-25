@@ -6,7 +6,6 @@ import net.fabricmc.api.Environment;
 import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.container.NameableContainerProvider;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
@@ -25,10 +24,10 @@ public class AshClayFurnaceBlock extends AbstractFurnaceBlock {
     }
 
     @Override
-    protected void openContainer(World world, BlockPos pos, PlayerEntity player) {
+    protected void openScreen(World world, BlockPos pos, PlayerEntity player) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
         if (blockEntity instanceof AshClayFurnaceBlockEntity) {
-            player.openContainer((NameableContainerProvider)blockEntity);
+            player.openHandledScreen((AshClayFurnaceBlockEntity)blockEntity);
             player.incrementStat(Stats.INTERACT_WITH_FURNACE);
         }
     }
