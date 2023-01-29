@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "codes.cheater",
+    "id": "ash_clay",
+    "version": "${version}",
+    "metadata": {
+      "name": "Ash Clay",
+      "description": "A Minecraft (Quilt) mod about a clay-like substance obtained from wood ash.",
+      "contributors": {
+        "CheaterCodes": "Owner"
+      },
+      "contact": {
+        "issues": "https://github.com/CheaterCodes/AshClay/issues",
+        "sources": "https://github.com/CheaterCodes/AshClay"
+      },
+      "icon": "assets/ash_clay/icon.png"
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "entrypoints": {
+      "init": "codes.cheater.ash_clay.AshClayMain"
+    },
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "versions": ">=0.17.6-"
+      },
+      {
+        "id": "quilted_fabric_api",
+        "versions": ">=5.0.0-"
+      },
+      {
+        "id": "minecraft",
+        "versions": ">=1.19.3"
+      }
+    ]
+  }
+}

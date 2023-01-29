@@ -1,9 +1,9 @@
-package net.cheatercodes.ash_clay.item;
+package codes.cheater.ash_clay.item;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.world.RayTraceContext;
+import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 
 public abstract class ItemAccessor extends Item {
@@ -11,7 +11,7 @@ public abstract class ItemAccessor extends Item {
         super(settings);
     }
 
-    public static BlockHitResult rayTrace(World world, PlayerEntity player, RayTraceContext.FluidHandling fluidHandling) {
-        return Item.rayTrace(world, player, fluidHandling);
+    public static BlockHitResult rayTrace(World world, PlayerEntity player, RaycastContext.FluidHandling fluidHandling) {
+        return Item.raycast(world, player, fluidHandling);
     }
 }

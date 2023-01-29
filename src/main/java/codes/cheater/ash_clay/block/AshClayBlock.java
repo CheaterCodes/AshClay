@@ -1,4 +1,4 @@
-package net.cheatercodes.ash_clay.block;
+package codes.cheater.ash_clay.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -6,6 +6,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.random.RandomGenerator;
 
 import java.util.Random;
 
@@ -30,7 +31,7 @@ public class AshClayBlock extends AshClayBrickBlock {
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
         int dry_state = state.get(DRY_STATE);
         if(dry_state < 2) {
             world.setBlockState(pos, state.with(DRY_STATE, dry_state + 1), 2);
